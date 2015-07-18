@@ -1,0 +1,289 @@
+{% extends "donatenow/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<style type="text/css">
+body {
+    background: #F3F3F3;
+}
+
+
+
+/* CSS ABAIXO USADO APENAS NESTA PAGINA DE EXEMPLO
+------------------------------------------------- */
+.sample {
+    background: #444;
+    color: #999;
+    font-size: 30px;
+    margin-bottom: 70px;
+    padding: 40px 0;
+    text-align: center;
+}
+.container {
+    margin-top: 30px;
+    margin-bottom: 130px;
+}
+</style>
+<!--
+<form action="" method="post" role="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-default">{% trans 'Enviar' %}</button>
+</form>
+ -->
+
+<!-- SIGNUP -->
+<div class="sample">1. CADASTRO</div>
+<div class="container container--mini">
+
+    <h1>{% trans 'Parabéns! Falta pouco.' %}</h1>
+    <div class="frame">
+
+        <form action="" method="post" role="form">
+
+            <div class="content">
+
+                {% csrf_token %}
+                <div class="form__row">
+                    <label class="form__label" for="id_email">{% trans 'Email' %}</label>
+                    <div class="form__field">
+                        <input id="id_email" maxlength="255" name="email" type="email">
+                    </div>
+                </div>
+                <ul class="errorlist">
+                    <li class="errorlist__label">
+                        <!-- <i class="fa fa-arrow-circle-o-down"></i> -->
+                        <i class="fa fa-arrow-down"></i>
+                        Erro abaixo
+                    </li>
+                    <li>Este campo é obrigatório.</li>
+                </ul>
+                <div class="form__row">
+                    <label class="form__label" for="id_password">{% trans 'Senha' %}</label>
+                    <div class="form__field">
+                        <input id="id_password" maxlength="60" name="password" type="password">
+                    </div>
+                </div>
+
+            </div> <!-- ./content -->
+
+            <div class="form__submit">
+                <button type="submit" class="btn btn--primary btn--submit">{% trans 'Criar Conta' %}</button>
+            </div>
+
+            <div class="form__footer">
+                <div class="content-x">
+                    {% trans 'Ao se cadastrar você concorda com os' %} <a href="{% url 'terms' %}">{% trans 'Termos de Uso' %}</a>  {% trans 'e a' %} <a href="{% url 'privacy' %}">{% trans 'Política de Privacidade' %}</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div> <!-- ./frame -->
+
+    <div class="content frame-after">
+        {% trans 'Já possui uma conta?' %} <a href="{% url 'login' %}">{% trans 'Entrar' %}</a>
+    </div>
+
+</div> <!-- ./container -->
+
+
+
+
+<!-- LOGIN -->
+<div class="sample">2. LOGIN</div>
+<div class="container container--mini">
+
+    <h1>{% trans 'Entre. A casa é sua.' %}</h1>
+    <div class="frame">
+
+        <form action="" method="post" role="form">
+
+            <div class="content">
+
+                {% csrf_token %}
+                <div class="form__row">
+                    <label class="form__label" for="id_email">{% trans 'Email' %}</label>
+                    <div class="form__field">
+                        <input id="id_email" maxlength="255" name="email" type="email">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <label class="form__label" for="id_password">{% trans 'Senha' %}</label>
+                    <div class="form__field">
+                        <input id="id_password" maxlength="60" name="password" type="password">
+                    </div>
+                </div>
+
+            </div> <!-- ./content -->
+
+            <div class="form__submit">
+                <button type="submit" class="btn btn--primary btn--submit">{% trans 'Entrar' %}</button>
+            </div>
+
+        </form>
+
+    </div> <!-- ./frame -->
+
+    <div class="content frame-after">
+        {% trans 'Esqueceu sua senha?' %} <a href="{% url 'recovery' %}">{% trans 'Recuperar senha' %}</a>
+        <div style="height: 0.5em"></div>
+        {% trans 'Não possui uma conta?' %} <a href="{% url 'signup' %}">{% trans 'Criar conta' %}</a>
+    </div>
+
+</div> <!-- ./container -->
+
+
+
+
+<!-- FORGOT PASSWORD -->
+<div class="sample">3. ESQUECI A SENHA</div>
+<div class="container container--mini">
+
+    <h1>{% trans 'Esqueceu a senha? Acontece.' %}</h1>
+    <div class="frame">
+
+        <form action="" method="post" role="form">
+
+            <div class="content">
+
+                <div class="form__intro">
+                    {% trans 'Digite o email utilizado para cadastro e enviaremos um link para você redefinir sua senha.' %}
+                </div>
+
+                {% csrf_token %}
+                <div class="form__row">
+                    <label class="form__label" for="id_email">{% trans 'Email' %}</label>
+                    <div class="form__field">
+                        <input id="id_email" maxlength="255" name="email" type="email">
+                    </div>
+                </div>
+
+            </div> <!-- ./content -->
+
+            <div class="form__submit">
+                <button type="submit" class="btn btn--primary btn--submit">{% trans 'Enviar' %}</button>
+            </div>
+
+        </form>
+
+    </div> <!-- ./frame -->
+
+    <div class="content frame-after">
+        {% trans 'Lembrou sua senha?' %} <a href="{% url 'login' %}">{% trans 'Entrar' %}</a>
+        <div style="height: 0.5em"></div>
+        {% trans 'Não possui uma conta?' %} <a href="{% url 'signup' %}">{% trans 'Criar conta' %}</a>
+    </div>
+
+</div> <!-- ./container -->
+
+
+
+
+
+<!-- RESET PASSWORD -->
+<div class="sample">4. RESETAR SENHA</div>
+<div class="container container--mini">
+
+    <h1>{% trans 'Criar Nova Senha' %}</h1>
+    <div class="frame">
+
+        <form action="" method="post" role="form">
+
+            <div class="content">
+
+                {% csrf_token %}
+                <div class="form__row">
+                    <label class="form__label" for="id_password">{% trans 'Senha' %}</label>
+                    <div class="form__field">
+                        <input id="id_password" maxlength="60" name="password" type="password">
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <label class="form__label" for="id_password">{% trans 'Confirmar Senha' %}</label>
+                    <div class="form__field">
+                        <input id="id_password" maxlength="60" name="password" type="password">
+                    </div>
+                </div>
+
+            </div> <!-- ./content -->
+
+            <div class="form__submit">
+                <button type="submit" class="btn btn--primary btn--submit btn--iconized">
+                    <i class="fa fa-check btn__ico btn__ico--before"></i>
+                    {% trans 'Confirmar' %}
+                </button>
+            </div>
+
+        </form>
+
+    </div> <!-- ./frame -->
+
+</div> <!-- ./container -->
+
+
+
+
+
+<!-- CONTACT -->
+<div class="sample">5. CONTATO</div>
+<div class="container container--mini">
+
+    <h1>{% trans 'Fala eu, Fala tu, Fala você' %}</h1>
+    <div class="frame">
+
+        <form action="" method="post" role="form">
+
+            <div class="content">
+
+                {% csrf_token %}
+                <div class="form__row">
+                    <label class="form__label" for="id_name">{% trans 'Nome' %}</label>
+                    <div class="form__field">
+                        <input id="id_name" maxlength="60" name="name" type="text">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <label class="form__label" for="id_email">{% trans 'Email' %}</label>
+                    <div class="form__field">
+                        <input id="id_email" maxlength="255" name="email" type="email">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <label class="form__label" for="id_phone">{% trans 'Telefone' %}</label>
+                    <div class="form__field">
+                        <input id="id_phone" maxlength="20" name="phone" type="text">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <label class="form__label" for="id_message">{% trans 'Mensagem' %}</label>
+                    <div class="form__field">
+                        <textarea cols="40" id="id_message" name="message" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form__intro">
+                    <strong>{% trans 'Horário de atendimento:' %}</strong><br>
+                    {% trans 'Segunda à Sábado das 9 às 20h.' %}<br><br>
+                    <i class="fa fa-envelope" style="color: #999; margin-right: 3px;"></i> contato@casalito.com
+                </div>
+
+            </div> <!-- ./content -->
+
+            <div class="form__submit">
+                <button type="submit" class="btn btn--primary btn--submit btn--iconized">
+                    {% trans 'Enviar' %}
+                    <i class="fa fa-paper-plane btn__ico btn__ico--after"></i>
+                </button>
+            </div>
+
+        </form>
+
+    </div> <!-- ./frame -->
+
+</div> <!-- ./container -->
+
+
+{% endblock %}

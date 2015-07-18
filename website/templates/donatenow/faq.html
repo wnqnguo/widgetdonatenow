@@ -1,0 +1,30 @@
+{% extends "donatenow/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="handbook">
+    <div class="handbook__hero">
+        <div class="handbook__container">
+            <h1>{% trans 'F.A.Q.' %}</h1>
+
+            <h2 style="margin: 5px auto 0">{{ _('No doubt. Just clear answers.') }}</h2>
+        </div>
+    </div>
+
+
+    <div class="handbook__container">
+        Work in Progress...
+    </div> <!-- ./handbook__container -->
+
+
+</div> <!-- ./handbook -->
+
+
+<div class="prefooter">
+    <h2>{{ _('Boost your fundraising.') }} <nobr>{{ _('Signup Free.') }}</nobr></h2>
+    <a href="{% url 'how-it-works' %}" class="prefooter__btn--primary">{{ _('How it works') }}<i class="fa fa-chevron-right"></i></a>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="pt-br">
+<head>
+    <meta charset = "utf-8" />
+    <title>Widgte Donate Now</title>
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'donatenow/js/app_private.js' %}"></script>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <!-- Windows/IE font smoothing -->
+    <!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><![endif]-->
+    <!--[if lt IE 7]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/scafolding.css' %}" />
+    <link rel="stylesheet" href="{% static 'donatenow/css/app_private.css' %}" />
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+      <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="topbar__logo">
+            <a href="{% url 'signup' %}">
+                <img src="{% static 'donatenow/img/logo-casalito-private.png' %}" style="margin: -4px 0 0 -1px; width:100%;">
+            </a>
+        </div>
+        <div class="topbar__extras">
+            <div class="topbar__tools">
+                <a class="topbar__tool-exit" href="{% url 'signup' %}">
+                    <span>{{ _('Logout') }}</span>
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </div>
+
+            <div class="topbar__hamburger" id="js-toggle-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="menu__items">
+            <a class="menu__item menu__item--active" href="{% url 'signup' %}">
+                <i class="fa fa-file-text-o"></i><span>{{ _('Widget') }}</span>
+            </a>
+            <a class="menu__item" href="{% url 'signup' %}">
+                <i class="fa fa-dollar"></i><span>{{ _('Payments') }}</span>
+            </a>
+            <a class="menu__item" href="{% url 'signup' %}">
+                <i class="fa fa-exchange"></i><span>{{ _('Withdraws') }}</span>
+            </a>
+        </div>
+
+
+        <a class="menu__item menu__item--settings" href="{% url 'signup' %}">
+            <i class="fa fa-gear"></i><span>{{ _('Settings') }}</span>
+        </a>
+
+        <a class="menu__item menu__item--exit" href="{% url 'signup' %}">
+            <i class="fa fa-sign-out"></i><span>{{ _('Logout') }}</span>
+        </a>
+
+        <!-- <a class="menu__item menu__item--gotosite" href="{% url 'signup' %}">
+            {{ _('Meu site') }}
+            <i class="fa fa-arrow-right"></i>
+        </a> -->
+    </div>
+
+    <div class="canvas">
+
+        <div class="content">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                    <div class="alert alert-warning" role="alert">{{ message }}</div>
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                    <div class="alert alert-info" role="alert">{{ message }}</div>
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    {% block js %}{% endblock %}
+</body>

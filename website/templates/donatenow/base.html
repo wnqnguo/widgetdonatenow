@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="pt-br">
+<head>
+    <meta charset = "utf-8" />
+    <title>Widget Donate Now</title>
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'donatenow/js/app.js' %}"></script>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <!-- Windows/IE font smoothing -->
+    <!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><![endif]-->
+    <!--[if lt IE 7]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/scafolding.css' %}" />
+    <link rel="stylesheet" href="{% static 'donatenow/css/app.css' %}" />
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+      <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <div class="topbar">
+
+        <div class="container" style="max-width: 1140px;">
+
+            <div class="topbar__logo">
+                <a href="{% url 'faq' %}">
+                    <img src="{% static 'donatenow/img/logo-casalito-public.png' %}" style="margin: -4px 0 0 -1px;">
+                </a>
+            </div>
+
+            <div class="menu">
+                <a href="{% url 'how-it-works' %}" class="menu__link menu__link-btn">{{_('How it works')}}</a>
+
+                <a href="{% url 'login' %}" class="menu__link">
+                    <i class="menu__link-ico-login"></i>
+                    <span>{{_('Login')}}</span>
+                </a>
+
+                <a href="{% url 'signup' %}" class="menu__link">
+                    <i class="menu__link-ico-signup"></i>
+                    <span>{{_('Signup')}}</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert--error"><i class="fa fa-times-circle"></i>{{ message }}</div>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+            <div class="alert alert--warning">{{ message }}</div>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            <div class="alert alert--info">{{ message }}</div>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert--success"><i class="fa fa-check"></i>{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+
+
+{# FOOTER #}
+<div class="footer">
+
+    <div class="container">
+
+        <div class="footer__logo">
+            <a href="/" style="border: transparent;">
+                <img src="{% static 'donatenow/img/logo-casalito-footer.png' %}" style="width:120px;">
+            </a>
+        </div>
+
+        <div class="footer__line1">
+            <a href="{% url 'how-it-works' %}" class="footer__link">{{_('How It Works')}}</a>
+            <a href="{% url 'faq' %}" class="footer__link">{{_('FAQ')}}</a>
+            <a href="{% url 'about' %}" class="footer__link">{{_('About')}}</a>
+            <a href="{% url 'contact' %}" class="footer__link">{{_('Contact')}}</a>
+        </div>
+
+
+        <div class="footer__line2">
+            <a href="{% url 'privacy' %}" class="footer__link">{{_('Privacy Policy')}}</a>
+            <a href="{% url 'terms' %}" class="footer__link">{{_('Terms of Use')}}</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+    {% block js %}{% endblock %}
+</body>

@@ -1,0 +1,28 @@
+{% extends "donatenow/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block js %}
+<script src="{% static 'donatenow/js/home.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="handbook">
+    <div class="handbook__hero">
+        <div class="handbook__container" style="max-width: 1140px;">
+            <h1>{% trans 'Bloggers boost fundraising <nobr>for nonprofits</nobr>' %}</h1>
+
+            <h2 style="margin: 5px auto 0">{{ _('Add your cause here and make money with bloggers.') }}</h2>
+        </div>
+    </div>
+
+
+    <div class="handbook__container">
+        Work in Progress...
+    </div> <!-- ./handbook__container -->
+
+
+</div> <!-- ./handbook -->
+
+
+{% endblock %}
