@@ -58,32 +58,29 @@
         </div>
     </div>
 
+
     <div class="menu">
         <div class="menu__items">
-            <a class="menu__item menu__item--active" href="{% url 'signup' %}">
-                <i class="fa fa-file-text-o"></i><span>{{ _('Widget') }}</span>
+            <a class="menu__item {% if current_url == 'widgets' %}menu__item--active{% endif %}" href="{% url 'widgets' %}">
+                <i class="fa fa-file-text-o"></i><span>{{ _('Widgets') }}</span>
             </a>
-            <a class="menu__item" href="{% url 'signup' %}">
+            <a class="menu__item {% if current_url == 'payments' %}menu__item--active{% endif %}" href="{% url 'payments' %}">
                 <i class="fa fa-dollar"></i><span>{{ _('Payments') }}</span>
             </a>
-            <a class="menu__item" href="{% url 'signup' %}">
+            <a class="menu__item {% if current_url == 'withdraws' %}menu__item--active{% endif %}" href="{% url 'withdraws' %}">
                 <i class="fa fa-exchange"></i><span>{{ _('Withdraws') }}</span>
             </a>
         </div>
 
 
-        <a class="menu__item menu__item--settings" href="{% url 'signup' %}">
+        <a class="menu__item menu__item--settings" href="{% url 'account' %}">
             <i class="fa fa-gear"></i><span>{{ _('Settings') }}</span>
         </a>
 
-        <a class="menu__item menu__item--exit" href="{% url 'signup' %}">
+        <a class="menu__item menu__item--exit" href="{% url 'logout' %}">
             <i class="fa fa-sign-out"></i><span>{{ _('Logout') }}</span>
         </a>
 
-        <!-- <a class="menu__item menu__item--gotosite" href="{% url 'signup' %}">
-            {{ _('Meu site') }}
-            <i class="fa fa-arrow-right"></i>
-        </a> -->
     </div>
 
     <div class="canvas">

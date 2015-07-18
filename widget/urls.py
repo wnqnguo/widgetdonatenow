@@ -30,10 +30,15 @@ urlpatterns = [
     url(r'^how-it-works/?', HowItWorksView.as_view(), name='how-it-works'),
     url(r'^contact/?', contact, name='contact'),
 
-    url(r'^login/?', account, name='login'),
-    url(r'^signup/?', account, name='signup'),
-    url(r'^recovery/?', account, name='recovery'),
-    url(r'^reset/?', account, name='reset'),
+    url(r'^logout/?', login, name='logout'),
+    url(r'^login/?', login, name='login'),
+    url(r'^signup/?', signup, name='signup'),
+    url(r'^recovery/?', recovery, name='recovery'),
+    url(r'^reset/?', reset, name='reset'),
 
+    url(r'^widgets/?', WidgetsView.as_view(), name='widgets'),
+    url(r'^payments/?', PaymentsView.as_view(), name='payments'),
+    url(r'^withdraws/?', WithdrawsView.as_view(), name='withdraws'),
     url(r'^account/?', account, name='account'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

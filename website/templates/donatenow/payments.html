@@ -1,0 +1,215 @@
+{% extends "donatenow/base_private.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<style type="text/css">
+.payments {
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    margin-top: 20px;
+}
+.payment__item {
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    height: 37px;
+    line-height: 1;
+    overflow: hidden;
+    padding: 11px 20px 7px;
+    position: relative;
+}
+.payment__item:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.payment__item:hover .fa-search-plus {
+    color: #25A351;
+}
+
+.payment__item-from {
+    float: left;
+}
+.payment__item-from-org span {
+    color: #444;
+    font-weight: bold;
+
+    /*font-size: 13px;
+    text-transform: uppercase;*/
+}
+.payment__item-from b {
+    font-weight: normal;
+}
+.payment__item-from-separator {
+    color: #999;
+    font-size: 12px;
+    padding: 2px 5px 0 7px;
+}
+.payment__item-from-widget {
+    font-style: italic;
+}
+.payment__item-date {
+    float: right;
+    text-align: right;
+}
+.payment__item-amount {
+    float: right;
+    display: block;
+    text-align: right;
+    width: 100px;
+}
+
+.fa-search-plus {
+    color: #777;
+    float: right;
+    margin: -1px 0 0 15px;
+}
+
+.payment__item-my {
+    background-color: #25A351;
+    position: absolute;
+    top: 11px;
+    /*margin-left: -28px;
+    height: 15px;
+    width: 15px;*/
+
+    top: 15px;
+    margin-left: -15px;
+    height: 9px;
+    width: 9px;
+
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+
+    display: none;
+}
+
+
+.summary {
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+.summary__item {
+    float: left;
+    max-width: 200px;
+    width: 30%
+}
+
+.summary__amount {
+    font-size: 28px;
+}
+.summary__amount-dollar {
+    /*font-size: 12px;*/
+    margin-right: 3px;
+}
+.summary__amount-value {
+    font-weight: bold;
+}
+.summary__label {
+    font-size: 14px;
+}
+</style>
+
+
+<div class="summary">
+
+    <div class="summary__item">
+        <div class="summary__amount">
+            <span class="summary__amount-dollar">$</span>
+            <span class="summary__amount-value">230.00</span>
+        </div>
+        <div class="summary__label">from your widgets</div>
+    </div>
+
+
+    <div class="summary__item">
+        <div class="summary__amount">
+            <span class="summary__amount-dollar">$</span>
+            <span class="summary__amount-value">6.20</span>
+        </div>
+        <div class="summary__label">from others</div>
+    </div>
+</div>
+
+
+<div class="payments">
+    <div class="payment__item">
+        <div class="payment__item-my"></div>
+        <div class="payment__item-from">
+            <span class="payment__item-from-org"><span>My org</span></span>
+            <span class="payment__item-from-separator"><i class="fa fa-chevron-right"></i></span>
+            <span class="payment__item-from-widget">Help Orphans in San Francisco</span>
+        </div>
+
+        <i class="fa fa-search-plus"></i>
+
+        <div class="payment__item-amount">
+            100.00
+        </div>
+
+        <div class="payment__item-date">
+            07/17/2015
+        </div>
+    </div>
+
+    <div class="payment__item">
+        <div class="payment__item-from">
+            <span class="payment__item-from-org">American Red Cross</span>
+            <span class="payment__item-from-separator"><i class="fa fa-chevron-right"></i></span>
+            <span class="payment__item-from-widget">Help Orphans in San Francisco</span>
+        </div>
+
+        <i class="fa fa-search-plus"></i>
+
+        <div class="payment__item-amount">
+            3.50
+        </div>
+
+        <div class="payment__item-date">
+            07/15/2015
+        </div>
+    </div>
+
+    <div class="payment__item">
+        <div class="payment__item-my"></div>
+        <div class="payment__item-from">
+            <span class="payment__item-from-org"><span>My org</span></span>
+            <!-- <span class="payment__item-from-separator"><i class="fa fa-angle-right"></i></span> -->
+            <!-- <span class="payment__item-from-widget">Help Orphans in San Francisco</span> -->
+        </div>
+
+        <i class="fa fa-search-plus"></i>
+
+        <div class="payment__item-amount">
+            130.00
+        </div>
+
+        <div class="payment__item-date">
+            07/12/2015
+        </div>
+    </div>
+
+    <div class="payment__item">
+        <div class="payment__item-from">
+            <span class="payment__item-from-org">American Red Cross</span>
+            <!-- <span class="payment__item-from-separator"><i class="fa fa-angle-right"></i></span>
+            <span class="payment__item-from-widget">Help Orphans in San Francisco</span> -->
+        </div>
+
+        <i class="fa fa-search-plus"></i>
+
+        <div class="payment__item-amount">
+            2.70
+        </div>
+
+        <div class="payment__item-date">
+            07/14/2015
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
