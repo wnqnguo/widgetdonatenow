@@ -61,6 +61,11 @@ class WithdrawsView(TemplateView):
         context.update({'current_url': 'withdraws'})
         return context
 
+class LandingpageView(TemplateView):
+    template_name = "%s/landingpage.html" % settings.SITE_NAME
+
+class DiscoverView(TemplateView):
+    template_name = "%s/discover.html" % settings.SITE_NAME
 
 def account(request, *args, **kwargs):
     context = RequestContext(request)

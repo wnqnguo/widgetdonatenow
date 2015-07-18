@@ -6,7 +6,7 @@
     <title>Widget Donate Now</title>
     <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'donatenow/js/app.js' %}"></script>
-
+    
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
     <link rel="stylesheet" href="{% static 'css/scafolding.css' %}" />
     <link rel="stylesheet" href="{% static 'donatenow/css/app.css' %}" />
-    <link rel="stylesheet" href="{% static 'donatenow/css/landingpage.css' %}" />
+    <link rel="stylesheet" href="{% static 'donatenow/css/discover.css' %}" />
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -36,31 +36,30 @@
     <![endif]-->
 </head>
 <body>
-	<h4>Share this link with the bloggers</h4>
-	<a href="http://localhost:8000/landingpage">www.sfsfdfsfs.com</a>
-	<script type="text/javascript" src="http://mywebsite.com/widgets/initial.js"></script>
-	<div id ="widget">
-		<img src="{% static 'donatenow/img/RedCross.jpg'%}"style=" height: 90px; width:100px;">
-		<h3>Help save the dying poor people</h3>
-		<h5>by Red Cross</h5>
-	</div>
-	
-	<div id="code" >
-		Insert this code to your blog<br>
-		<span><</span>
-		<span>script</span>
-		<span>></span>
-		<span><</span>
-		<span>/script</span>
-		<span>></span>
-	
-	</div>
-	<h5> Help raising funds for this cause making extra money!</h5>
-	<a href="http://localhost:8000/">create a free account!</a>
-	<h5>Already a blogger? log into your account here</h5>
-	<a href="http://localhost:8000/login">Login!</a>
-
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+        <div class="front">
+            <table>
+            <tr>
+                <td><img src="{% static 'donatenow/img/RedCross.jpg'%}"style=" height: 90px; width:110px;"></td>
+                <td> American Red Cross</td>
+            </tr>
+            </table>
+               
+                <h5>the American Red Cross offers services in: community services that help the needy; communications services and comfort for military members and their family members; the collection, processing and distribution of blood and blood products; educational programs on preparedness, health, and safety; and international relief and development programs</h5>
+           
+        
+            <button style="background-color:grey">Add me to your blog</button> <!-- front content -->
+        </div>
+        
+        <div class="back">
+            <!-- back content -->
+            <h4 style="color:black">copy me and paste it into your blog</h4>
+        </div>
+        </div>
+        
+        
+    </div>
 </body>
 	
 </html>
-

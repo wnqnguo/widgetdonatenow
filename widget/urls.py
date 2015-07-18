@@ -40,5 +40,7 @@ urlpatterns = [
     url(r'^payments/?', PaymentsView.as_view(), name='payments'),
     url(r'^withdraws/?', WithdrawsView.as_view(), name='withdraws'),
     url(r'^account/?', account, name='account'),
+    url(r'^landingpage/?', LandingpageView.as_view(), name='landingpage'),
+    url(r'^discover/?', DiscoverView.as_view(), name='discover'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
