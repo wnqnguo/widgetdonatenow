@@ -134,10 +134,11 @@
     background: #D84F53;
     background: #eee;
     background: #fff;*/
-    background: rgb(98, 194, 33);
-
-    background: #4D576D;
+    background:#4D576D;
+    padding-bottom: 40px;
+  
     margin-bottom: -35px;
+    margin-top: -8px;
 }
 .topbar .container {
     /*background: #fff;*/
@@ -481,13 +482,20 @@ a.menu__link-btn:hover, a.menu__link-btn:active {
 .handbook__container {
     margin: 0 auto;
     max-width: 730px;
+    background-color: white;
 }
 
 .handbook__hero {
-    background: #4D576D;
+    background: white;
     margin-bottom: 50px;
     padding-top: 100px;
     padding-bottom: 100px;
+
+}
+.topbar{
+    background-color: #4D576D;
+    margin-bottom: -35px;
+    margin-top: -8px;
 }
 .handbook h1 {
     font-weight: 800;

@@ -38,7 +38,7 @@
 <body>
     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
-        <div class="front">
+        <div class="front" id ="front_one">
             <table>
             <tr>
                 <td><img src="{% static 'donatenow/img/RedCross.jpg'%}"style=" height: 90px; width:110px;"></td>
@@ -52,13 +52,35 @@
             <button style="background-color:grey">Add me to your blog</button> <!-- front content -->
         </div>
         
-        <div class="back">
+        <div class="back" id="back_one">
             <!-- back content -->
             <h4 style="color:black">copy me and paste it into your blog</h4>
         </div>
+         
+        </div>
+    </div>
+     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+        <div id ="front_two">
+            <table>
+            <tr>
+                <td><img src="{% static 'donatenow/img/RedCross.jpg'%}"style=" height: 90px; width:110px;"></td>
+                <td> American Red Cross</td>
+            </tr>
+            </table>
+               
+                <h5>the American Red Cross offers services in: community services that help the needy; communications services and comfort for military members and their family members; the collection, processing and distribution of blood and blood products; educational programs on preparedness, health, and safety; and international relief and development programs</h5>
+           
+        
+            <button style="background-color:grey">Add me to your blog</button> <!-- front content -->
         </div>
         
-        
+        <div id="back_one">
+            <!-- back content -->
+            <h4 style="color:black">copy me and paste it into your blog</h4>
+        </div>
+         
+        </div>
     </div>
 </body>
 	
