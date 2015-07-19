@@ -173,7 +173,9 @@
 
 .menu {
     padding-top: 21px;
-    padding-top: 16px;
+    padding-top: 19px;
+    overflow:hidden;
+      margin-top: 3px;
 }
 a.menu__link {
     float: right;
